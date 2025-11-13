@@ -50,11 +50,31 @@ void main() {
     grupoWhatsapp.forEach((key,value){
       contador=contador+1;
       if(key==nombre){
-        grupoWhatsapp.remove(contador);
+        grupoWhatsapp.remove(key);
       }
     });
     break;
-  
+    
+    case 3:
+     print("Dime el nombre del contacto a buscar: ");
+    String nombre = stdin.readLineSync()!;
+    
+    grupoWhatsapp.forEach((key,value){
+      if(key==nombre){
+        print(value);
+      }
+    });
+    break;
+
+    case 4:
+    grupoWhatsapp.forEach((key,value){
+      print("Nombre "+key+" Teléfono: "+value);
+    });
+    break;
+
+    case 5:
+    print("Adios!");
+
    }
 
   }while(eleccion!=5);
@@ -62,6 +82,6 @@ void main() {
 }
 
 bool esNumeroValido(String numeroTelefono) {
-  final RegExp regex = RegExp(r'([0-9]{9}');
+  final RegExp regex = RegExp(r'[0-9]{9}');
   return regex.hasMatch(numeroTelefono);
 }
