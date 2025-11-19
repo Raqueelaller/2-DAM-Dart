@@ -37,4 +37,17 @@ class Vector{
   }
 
 
+  double productoEscalar(Punto a, Punto b){
+    double producto = (a.x * b.x)+ (a.y*b.y)+ (a.z*b.z);
+    return producto;
+  }
+
+  void sumarVectores(Vector a){
+    inicio.x=(inicio.x+a.inicio.x);
+    inicio.y=inicio.y+a.inicio.y;
+    inicio.z=inicio.z+a.inicio.z;
+  }
+
+
+
 }
