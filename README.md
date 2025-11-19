@@ -12,6 +12,8 @@ Los ejercicios están organizados por **tema o tipo de práctica**:
 - `relación 1` - Ejercicios de sintaxis básica, variables, tipos de datos y operaciones.
 - `relación 2` - Ejercicios con funciones y métodos.
 - `relación 3` - Ejercicios con funciones y métodos.
+- `relación 4` - Ejercicios introducción a clases.
+
 
 > Cada carpeta contiene archivos `.dart` con el código de cada ejercicio, comentado para facilitar el aprendizaje.
 
