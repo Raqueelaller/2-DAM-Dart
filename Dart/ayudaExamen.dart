@@ -1,4 +1,8 @@
 // ===== ARCHIVO COMPLETO DE REPASO DART - EXAMEN =====
+// dart create --template=console ejercicio5
+// dart pub get
+//1.18
+//coleection
 
 // 1. FUNCIONES
 void main() {

@@ -1,4 +1,4 @@
-class Fraccion {
+class Fraccion  {
   int numerador;
   int denominador;
 
@@ -89,20 +89,32 @@ class Fraccion {
   }
 }
 
-class FraccionComparable extends Fraccion {
+
+mixin Comparable<T> {
+  bool esMayorQue(T otro);
+  bool esMenorQue(T otro);
+  bool esIgualA(T otro);
+  
+  // Métodos con implementación por defecto
+  bool esMayorOIgualQue(T otro) => esMayorQue(otro) || esIgualA(otro);
+  bool esMenorOIgualQue(T otro) => esMenorQue(otro) || esIgualA(otro);
+  bool esDistintoQue(T otro) => !esIgualA(otro);
+}
+
+class FraccionComparable extends Fraccion with Comparable<Fraccion> {
   FraccionComparable(int numerador, int denominador) : super(numerador, denominador);
 
-  // Comparar si esta fracción es mayor que otra
+  @override
   bool esMayorQue(Fraccion otra) {
     return this.toDouble() > otra.toDouble();
   }
 
-  // Comparar si esta fracción es menor que otra
+  @override
   bool esMenorQue(Fraccion otra) {
     return this.toDouble() < otra.toDouble();
   }
 
-  // Comparar si esta fracción es igual a otra
+  @override
   bool esIgualA(Fraccion otra) {
     final f1 = Fraccion(numerador, denominador);
     final f2 = Fraccion(otra.numerador, otra.denominador);
@@ -110,19 +122,45 @@ class FraccionComparable extends Fraccion {
     f2.simplificar();
     return f1.numerador == f2.numerador && f1.denominador == f2.denominador;
   }
-
-  // Comparar si esta fracción es mayor o igual que otra
-  bool esMayorOIgualQue(Fraccion otra) {
-    return esMayorQue(otra) || esIgualA(otra);
-  }
-
-  // Comparar si esta fracción es menor o igual que otra
-  bool esMenorOIgualQue(Fraccion otra) {
-    return esMenorQue(otra) || esIgualA(otra);
-  }
-
-  // Comparar si esta fracción es distinta de otra
-  bool esDistintoQue(Fraccion otra) {
-    return !esIgualA(otra);
-  }
 }
+/*
+class FraccionComparable extends Fraccion {
+  FraccionComparable(int numerador, int denominador) : super(numerador, denominador);
+
+  // // Comparar si esta fracción es mayor que otra
+  // bool esMayorQue(Fraccion otra) {
+  //   return this.toDouble() > otra.toDouble();
+  // }
+
+  // // Comparar si esta fracción es menor que otra
+  // bool esMenorQue(Fraccion otra) {
+  //   return this.toDouble() < otra.toDouble();
+  // }
+
+  // // Comparar si esta fracción es igual a otra
+  // bool esIgualA(Fraccion otra) {
+  //   final f1 = Fraccion(numerador, denominador);
+  //   final f2 = Fraccion(otra.numerador, otra.denominador);
+  //   f1.simplificar();
+  //   f2.simplificar();
+  //   return f1.numerador == f2.numerador && f1.denominador == f2.denominador;
+  // }
+
+  // // Comparar si esta fracción es mayor o igual que otra
+  // bool esMayorOIgualQue(Fraccion otra) {
+  //   return esMayorQue(otra) || esIgualA(otra);
+  // }
+
+  // // Comparar si esta fracción es menor o igual que otra
+  // bool esMenorOIgualQue(Fraccion otra) {
+  //   return esMenorQue(otra) || esIgualA(otra);
+  // }
+
+  // // Comparar si esta fracción es distinta de otra
+  // bool esDistintoQue(Fraccion otra) {
+  //   return !esIgualA(otra);
+  // }
+  
+
+}
+*/

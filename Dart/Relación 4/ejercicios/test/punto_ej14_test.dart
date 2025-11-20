@@ -33,7 +33,7 @@ void main() {
       p.desplazarYAbajo(-1.0);
 
       expect(p.x, equals(1.0));
-      expect(p.y, equals(1.0)); // 2 + (-1)
+      expect(p.y, equals(3.0)); // 2 + (-1)
       expect(p.z, equals(3.0));
     });
 
